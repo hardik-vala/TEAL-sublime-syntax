@@ -1,0 +1,18 @@
+%YAML 1.2
+---
+name: TEAL
+file_extensions:
+  - teal
+scope: source.teal
+
+contexts:
+  main:
+    # Comments begin with a '//' and finish at the end of the line
+    - match: '//'
+      scope: punctuation.definition.comment.teal
+      push: line_comment
+
+  line_comment:
+    - meta_scope: comment.line.teal
+    - match: $
+      pop: true
